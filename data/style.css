@@ -1,0 +1,15 @@
+body, input {
+  font-size: 22px;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 30px;
+  color: #666699;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}

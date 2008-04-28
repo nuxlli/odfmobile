@@ -1,0 +1,29 @@
+Passos para instalaćão do oreader
+
+Dependencias
+======================================
+
+Pacotes
+  
+  # apt-get install xsltproc python2.5-libxml2 -y
+
+
+Pacote com o mozembed 
+  
+   Baixe e instale o pacote:
+     http://www.henso.com/files/grumby/python2.5-gnome-extras_2.19.1-2_armel.deb
+
+
+Agracedimentos
+======================================
+
+
+Idéias
+======================================
+
+- Adicionar icones de ODF e amarrar os tipo de arquivo ao leitor
+- Adicionar plugin ao navegador para que os arquivos possam ser visualizados 
+    diretamente no navegador
+- Adicionar abas e funcionalidade de visualizar varios documentos sem fechar
+    - Com isso impedir que mais de uma instancia do aplicativo seja aberta
+
