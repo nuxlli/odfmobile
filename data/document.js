@@ -22,10 +22,10 @@ function font_size(percent) {
 }
 
 function increaseFont() {
-  exec_wait_msg(function() { font_size(1.1) });  
+  exec_wait_msg(function() { font_size(1.1) });
+  alert('teste');
 }
 
 function decreaseFont() {
   exec_wait_msg(function() { font_size(0.9) });
-  font_size(0.9)
 }

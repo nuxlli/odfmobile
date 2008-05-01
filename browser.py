@@ -1,6 +1,8 @@
 import gtkmozembed
 import osso
 import os
+import re
+import hildon
 
 from threading import RLock
 
@@ -19,6 +21,7 @@ class Browser(gtkmozembed.MozEmbed):
   browserlock = RLock()
   loading     = False
   app         = None
+  msgs        = {}
 
   def __init__(self, app, profile_path):
     gtkmozembed.push_startup()
@@ -92,12 +95,14 @@ class Browser(gtkmozembed.MozEmbed):
     if url.find("http://cmd/") == 0:
       match = re.compile('http://cmd/(.*?)/(.*)').search(url)
       if match != None:
-        if match.group(1) == 'msg'
-
-      # Wait process file
-      banner = hildon.hildon_banner_show_animation(self.window, None, "  Opening... ")
-      while odf.processed == 0: continue
-      banner.destroy()
+        if match.group(1) == 'msg':
+          options = match.group(2).split('/')
+          if ((options[0] == 'add') and (self.msgs.get(options[1]) == None)):
+            self.msgs[options[1]] = hildon.hildon_banner_show_animation(self.app.window, None, " Wait... ")
+          elif (options[0] == 'remove' and (self.msgs.get(options[1]) != None)):
+            self.msgs[options[1]].destroy()
+            del(self.msgs[options[1]])
+      
       return True
 
     print "launching external browser: " + url

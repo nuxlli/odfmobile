@@ -21,7 +21,7 @@ class oReader(hildon.Program):
   def __init__(self):
     hildon.Program.__init__(self)
 
-    self.home_dir = os.path.abspath(os.path.expanduser('~/.oreader'))
+    self.home_dir = os.path.abspath(os.path.expanduser('~/.odfmobile'))
     if not os.path.exists(self.home_dir):
       os.makedirs(self.home_dir)
     
@@ -35,7 +35,6 @@ class oReader(hildon.Program):
     self.browser = Browser(self, self.home_dir)
     self.browser.open_local_url('index.html')
     self.window.add(self.browser)
-    print self.browser.get_js_status()
 
     # Menu
     self.menu = gtk.Menu()
@@ -109,7 +108,7 @@ class oReader(hildon.Program):
 
   def finalize_open(self, odf):
     # Wait process file
-    banner = hildon.hildon_banner_show_animation(self.window, None, "  Opening... ")
+    banner = hildon.hildon_banner_show_animation(self.window, None, " Opening... ")
     while odf.processed == 0: continue
     banner.destroy()
 
@@ -128,6 +127,9 @@ class oReader(hildon.Program):
   def open_document(self, target = None):
     if self.document['opened'] == 0:
       odf = odt2html(self.document['document'])
+      #odf.run()
+      #self.finalize_open(odf)
+
       Thread(target=odf.run).start()
       Thread(target=self.finalize_open, args=(odf,)).start()
 
@@ -163,6 +165,7 @@ class oReader(hildon.Program):
   def close(self, target):
     self.close_document()
     self.dlg.destroy()
+    gtk.gdk.threads_leave()
     gtk.main_quit()
 
 if __name__ == "__main__":
