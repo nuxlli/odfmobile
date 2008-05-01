@@ -1,13 +1,13 @@
 Instalation
 ======================================
 
-Packs:
+Dependencies:
   
-  Enable mod red pill
-  # apt-get install xsltproc python2.5-libxml2 -y
+  Enable Red Pill Mode (http://maemo.org/community/wiki/enableredpillmode/)
+  # apt-get install xsltproc python2.5-libxml2 wget -y
 
 
-Pack mozembed:
-  
-  Download http://www.henso.com/files/grumby/python2.5-gnome-extras_2.19.1-2_armel.deb
-  # dpkg -i python2.5-gnome-extras_2.19.1-2_armel.deb
+  External dependence:
+    
+    # wget http://www.henso.com/files/grumby/python2.5-gnome-extras_2.19.1-2_armel.deb
+    # dpkg -i python2.5-gnome-extras_2.19.1-2_armel.deb
