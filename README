@@ -4,7 +4,7 @@ Instalation
 Dependencies:
   
   Enable Red Pill Mode (http://maemo.org/community/wiki/enableredpillmode/)
-  # apt-get install xsltproc python2.5-libxml2 wget -y
+  # apt-get install xsltproc microb-engine libgtkmozembed python2.5-osso python2.5-libxml2 wget -y
 
 
   External dependence:
